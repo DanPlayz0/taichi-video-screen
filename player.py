@@ -74,7 +74,7 @@ caching_thread = Thread(target=cache_thread)
 caching_thread.start()
 
 def update_frame(plane_colors: ti.template(), frameId: int):
-  frame = frames[frameId%len(frames)]
+  frame = frames[frameId]
   for i in range(len(frame)):
     plane_colors[i] = frame[i]
 
@@ -90,16 +90,12 @@ while window.running:
   if window.get_event(ti.ui.RELEASE):
     if window.event.key == ti.ui.SPACE:
       paused = not paused
-    elif window.event.key == ti.ui.BACKSPACE:
-      print(camera.curr_lookat)
-      print(camera.curr_position)
-    # elif window.event.key == ti.ui.RIGHT:
-    #   frameId += 10
-    #   update_frame(plane_colors, frameId%totalFrames)
-    # elif window.event.key == ti.ui.LEFT:
-    #   frameId -= 10
-    #   update_frame(plane_colors, frameId%totalFrames)
-  # frameId += 10
+    elif window.event.key == ti.ui.RIGHT and paused:
+      frameId = (frameId + 1) % len(frames)
+      update_frame(plane_colors, frameId)
+    elif window.event.key == ti.ui.LEFT and paused:
+      frameId = (frameId - 1) % len(frames)
+      update_frame(plane_colors, frameId)
 
   if not paused:
     frameId = (frameId + 1) % len(frames)
