@@ -14,6 +14,20 @@ Currently uses aprox 3.3 GB of RAM to cache every 10th frame of a 480p video.
 5. When it opens, you can click and hold to move around the camera, use WASD to move in space.
 6. Once you've positioned however you'd like the camera to sit. Hit the `SPACE` to play or pause.
 
+## Controls
+
+| Action         | Key             |
+| -------------- | --------------- |
+| Pause/Play     | Space           |
+| Previous Frame | Left Arrow Key  |
+| Next Frame     | Right Arrow Key |
+| Move Forward   | W               |
+| Move Backward  | S               |
+| Move Left      | A               |
+| Move Right     | D               |
+| Move Up        | E               |
+| Move Down      | Q               |
+
 ## Credits
 
 - [Taichi Lang](https://www.taichi-lang.org/)
